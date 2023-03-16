@@ -1,15 +1,17 @@
+package src;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 //TODO: gui
 public class Main {
 
-    static Scanner scn = new Scanner(System.in);
+    static final Scanner scn = new Scanner(System.in);
 
     public static void main(String[] args) {
 
-        Person p1 = new Person(0);
-        Person p2 = new Person(0);
-        Person dog = new Person(0);
+        Person p1 = new Person();
+        Person p2 = new Person();
+        Person dog = new Person();
         double distance = 0;
         boolean notDoneChoosing = true;
         while (notDoneChoosing) {
