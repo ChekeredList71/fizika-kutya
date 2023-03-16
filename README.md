@@ -1,0 +1,3 @@
+# fizika-kutya
+
+Ez egy fizika versenyfeladatra készített program, semmi különös...
