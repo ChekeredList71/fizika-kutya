@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="fizika-kutya:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/fizika_kutya_jar</output-path>
+    <root id="archive" name="fizika-kutya.jar">
+      <element id="module-output" name="fizika-kutya" />
+    </root>
+  </artifact>
+</component>
