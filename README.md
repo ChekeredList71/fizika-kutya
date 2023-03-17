@@ -13,4 +13,7 @@ Ahogy fejlesztem (és javítom) a programot, új verziók lesznek kiadva. Azok i
 # Milyen új dolog kerül még a programba?
 
 - felhasználói felület
+- gyorsulás
+- grafikon
+- automatikus léptetés (megad a felhasználó egy fix léptetést és azon autoüatikusan végig megy)
 - és ami még kell
