@@ -9,6 +9,10 @@ public class Main {
 
     public static void main(String[] args) {
 
+        GUI gui = new GUI();
+
+        gui.inputWindow();
+
         Person p1 = new Person();
         Person p2 = new Person();
         Person dog = new Person();
