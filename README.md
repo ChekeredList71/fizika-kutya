@@ -15,5 +15,5 @@ Ahogy fejlesztem (és javítom) a programot, új verziók lesznek kiadva. Azok i
 - felhasználói felület
 - gyorsulás
 - grafikon
-- automatikus léptetés (megad a felhasználó egy fix léptetést és azon autoüatikusan végig megy)
+- automatikus léptetés (megad a felhasználó egy fix léptetést és azon automatikusan végig megy)
 - és ami még kell
