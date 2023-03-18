@@ -12,8 +12,7 @@ Ahogy fejlesztem (és javítom) a programot, új verziók lesznek kiadva. Azok i
 
 # Milyen új dolog kerül még a programba?
 
-- felhasználói felület
-- gyorsulás
+- felhasználói felület (JMenu fellül mentés és betöltésre)
 - grafikon
 - automatikus léptetés (megad a felhasználó egy fix léptetést és azon automatikusan végig megy)
 - és ami még kell
