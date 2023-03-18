@@ -9,9 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        GUI gui = new GUI();
-
-        gui.inputWindow();
+        GUI.inputWindow();
 
         Person p1 = new Person();
         Person p2 = new Person();
@@ -42,8 +40,8 @@ public class Main {
         double stepTime;
         double previousDistance = 0;
         double dogDistanceRanInACycle = 0;
-        double dogDistanceRanAll = 0;
-        double dogCycle = 0;
+        double dogTraveled = 0;
+        int dogCycle = 0;
 
         while (distance > 0) {
             try {
@@ -59,10 +57,10 @@ public class Main {
                   HA NEM FUT TÚL: minusu lesz a következő körben a távolsága.
                   EZ GOND????? TODO: megkérdezni a ha nem fut túl esetet*/
                 if (dogDistanceRanInACycle >= distance) {
-                    dogDistanceRanAll += dogDistanceRanInACycle;
                     dogDistanceRanInACycle -= distance;
                     dogCycle += 1;
                 }
+                dogTraveled += dogDistanceRanInACycle;
 
             } catch (InputMismatchException e) {
                 System.out.println("A beírt adat nem szám. Csak egész vagy tizedes számokat használhat.");
@@ -71,7 +69,7 @@ public class Main {
             System.out.println("A kutya ennyiszer fordult meg eddig: " + dogCycle);
             System.out.println("A kutya egy körön belül megtett távja (körönként nullázódik): "
                     +dogDistanceRanInACycle);
-            System.out.println("A kutya összesen ennyit futott: " + dogDistanceRanAll);
+            System.out.println("A kutya összesen ennyit futott: " + dogTraveled);
             System.out.println();
         }
 
