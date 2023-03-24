@@ -4,7 +4,6 @@ import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.util.List;
 
 public class GUI {
 
@@ -16,6 +15,7 @@ public class GUI {
     static JLabel dogDistanceRanInACycle = new JLabel("0");
     static JLabel dogAllDistance = new JLabel("0");
     static JTextField stepTime = new JTextField(30);
+    static JButton next = new JButton("Következő");
     public static void inputWindow() {
 
         Dimension res = Toolkit.getDefaultToolkit().getScreenSize();
@@ -101,7 +101,7 @@ public class GUI {
         //dog all distance
         JPanel dogTraveledPanel = new JPanel();
         dogTraveledPanel.setLayout(new BoxLayout(dogTraveledPanel, BoxLayout.LINE_AXIS));
-        JLabel dogTraveledLabel = new JLabel("Kutya távolsága a jelenlegi körben: ");
+        JLabel dogTraveledLabel = new JLabel("Kutya összes útja: ");
         dogTraveledPanel.setAlignmentX(Component.LEFT_ALIGNMENT);
         dogAllDistance.setAlignmentX(Component.LEFT_ALIGNMENT);
         dogAllDistance.setMaximumSize(new Dimension(200, 30));
@@ -112,19 +112,25 @@ public class GUI {
         //steptime, simulate and nextbutton
         JPanel stepTimePanel = new JPanel();
         stepTimePanel.setLayout(new BoxLayout(stepTimePanel, BoxLayout.LINE_AXIS));
-        JLabel stepTimeLabel = new JLabel("Kutya távolsága a jelenlegi körben: ");
+        JLabel stepTimeLabel = new JLabel("Következő pillanatig eltelt idő: ");
         stepTimePanel.setAlignmentX(Component.LEFT_ALIGNMENT);
         stepTime.setAlignmentX(Component.LEFT_ALIGNMENT);
         stepTime.setMaximumSize(new Dimension(200, 30));
+
         stepTimePanel.add(stepTimeLabel);
         stepTimePanel.add(Box.createHorizontalGlue());
         stepTimePanel.add(stepTime);
+        stepTimePanel.add(Box.createHorizontalGlue());
+        stepTimePanel.add(next);
+
+
+
 
 
         //store subpanels in aray to add to main panel
         Component[] components = {p1Panel, p2Panel, distancePanel, Box.createRigidArea(new Dimension(0,15)),
         dogSpeedPanel, Box.createRigidArea(new Dimension(0,30)), dogRoundsPanel, dogCycleDistancePanel,
-        Box.createVerticalGlue(),  stepTimePanel};
+                dogTraveledPanel, Box.createVerticalGlue(),  stepTimePanel};
 
         //add subpanels to main panel
         for (Component x: components) {
