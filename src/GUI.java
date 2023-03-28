@@ -4,9 +4,13 @@ import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GUI {
+    static Dimension res = Toolkit.getDefaultToolkit().getScreenSize();
 
+    private static final JFrame frame = new JFrame("Futkosó kutya"); //TODO: talán ezeket private-re
     static JTextField p1Speed = new JTextField(30);
     static JTextField p2Speed = new JTextField(30);
     static JTextField distance = new JTextField(30);
@@ -17,9 +21,6 @@ public class GUI {
     static JTextField stepTime = new JTextField(30);
     static JButton next = new JButton("Következő");
     public static void inputWindow() {
-
-        Dimension res = Toolkit.getDefaultToolkit().getScreenSize();
-        JFrame frame = new JFrame("Futkosó kutya");
 
 
         //set up main panel
@@ -124,16 +125,13 @@ public class GUI {
         stepTimePanel.add(next);
 
 
-
-
-
         //store subpanels in aray to add to main panel
         Component[] components = {p1Panel, p2Panel, distancePanel, Box.createRigidArea(new Dimension(0,15)),
         dogSpeedPanel, Box.createRigidArea(new Dimension(0,30)), dogRoundsPanel, dogCycleDistancePanel,
                 dogTraveledPanel, Box.createVerticalGlue(),  stepTimePanel};
 
         //add subpanels to main panel
-        for (Component x: components) {
+        for (Component x : components) {
             mainPanel.add(x);
         }
 
@@ -146,18 +144,124 @@ public class GUI {
         frame.add(mainPanel);
 
         frame.setVisible(true);
+        next.addActionListener(new ActionListener() {
+            Calculator calc;
+            boolean constructed = false;
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (verify()) {
+                    if (!constructed) {
+                        calc = new Calculator(GUI.Get.p1Speed(), GUI.Get.p2Speed(), GUI.Get.dogSpeed(), GUI.Get.distance());
+                        constructed = true;
+                    }
+                    calc.nextState(Get.stepTime());
+                } else {
+                    inform("Hiba", "Nem megfelelő paraméterek. Csak nem negatív tizedes vagy egész számok " +
+                            "lehetnek.", 0);
+                }
+            }
+        });
+    }
 
+    public static void inform(String title, String text, int messageType) {
+        JOptionPane.showMessageDialog(frame, text, title, messageType);
+    }
+
+    /**
+     * Megkérdezi a felhasználot, hogy üresítse-e ki a mezőket.*/
+    public static void askDeleteEntries() {
+         if (JOptionPane.showConfirmDialog(frame, "Paraméter mezők kiüresítése?", "",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                GUI.Set.p1Speed("");
+                GUI.Set.p2Speed("");
+                GUI.Set.distance("");
+                GUI.Set.dogSpeed("");
+                GUI.Set.dogRounds("0");
+                GUI.Set.dogDistanceRanInACycle("0");
+                GUI.Set.dogAllDistance("0");
+                GUI.Set.stepTime("");
+         }
+    }
+
+    /**
+     * Megnézi, hogy a beírt adatok double-ök-e és nem negatívak.
+     * @return true, ha helyesek a paraméterek*/
+    private static boolean verify() {
+        try {
+            String[] texts = {p1Speed.getText(), p2Speed.getText(), distance.getText(),
+                    dogSpeed.getText(), stepTime.getText()};
+            for (String text : texts) {
+                if (Double.parseDouble(text) < 0) {
+                    return false;
+                }
+            }
+            return true;
+
+        } catch(NumberFormatException e){
+            return false;
+        }
     }
 
     static class Set {
-        public void distance(double distance) {
-            dogSpeed.setText(Double.toString(distance));
+        /*
+        * Set the GUI's JTextFields and JLabels.*/
+        public static void p1Speed(String s) {
+            p1Speed.setText(s);
         }
 
-        public void dogRounds(int rounds) {
-            dogRounds.setText(String.valueOf(rounds));
+        public static void p2Speed(String s) {
+            p2Speed.setText(s);
+        }
+
+        public static void distance(String d) {
+            distance.setText(d);
+        }
+
+        public static void dogSpeed(String d) {
+            dogSpeed.setText(d);
+        }
+
+        public static void dogRounds(String rounds) {
+            dogRounds.setText(rounds);
+        }
+
+        public static void dogDistanceRanInACycle(String distance) {
+            dogDistanceRanInACycle.setText(distance);
+        }
+
+        public static void dogAllDistance(String distance) {
+            dogAllDistance.setText(distance);
+        }
+
+        public static void stepTime(String time) {
+            stepTime.setText(time);
+        }
+    }
+
+    static class Get {
+        /*
+        * Get data from GUI.*/
+        public static double p1Speed() {
+            return Double.parseDouble(p1Speed.getText());
+        }
+
+        public static double p2Speed() {
+            return Double.parseDouble(p2Speed.getText());
+        }
+
+        public static double dogSpeed() {
+            return Double.parseDouble(dogSpeed.getText());
+        }
+
+        public static double distance() {
+            return Double.parseDouble(distance.getText());
+        }
+
+        public static double stepTime() {
+            return Double.parseDouble(stepTime.getText());
         }
 
     }
 
 }
+//TODO: JMenu, ahol cellák kiüresítése van és grafikon exportálása
