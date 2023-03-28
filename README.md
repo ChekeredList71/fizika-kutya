@@ -4,7 +4,7 @@ Ez egy fizika versenyfeladatra készített program, semmi különös...
 
 # Hogy kell letölteni és futtatni?
 
-Az oldalt található *Releases* résznél van egy .zip fájl, ami tartalmazza a lefordított programot, egy indítóprogramot és a .jar fájl futtatásához szükséges JDK-t is. Ott kell letölteni a fizika-kutya-*verziószám*.zip fájt.
+Az oldalt található *Releases* résznél van egy .zip fájl, ami tartalmazza a lefordított programot, egy indítóprogramot és a .jar fájl futtatásához szükséges JRE-t is. Ott kell letölteni a fizika-kutya_standalone_win10_x64.zip fájt.
 
 **Kicsomaglás után** *start.bat* **programmal lehet elindítani.**
 
