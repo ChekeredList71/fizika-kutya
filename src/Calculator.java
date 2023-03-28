@@ -50,8 +50,4 @@ public class Calculator {
             GUI.askDeleteEntries();
         }
     }
-
-    public boolean isDone() {
-        return distance <= 0;
-    }
 }
