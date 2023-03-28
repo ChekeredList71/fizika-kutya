@@ -33,7 +33,7 @@ public class Calculator {
                       Ami a túlmenet, az hozzáadódik a következő körben futotthoz.
                       HA NEM FUT TÚL: mínusz lesz a következő körben a távolsága.
                       EZ GOND????? TODO: megkérdezni a ha nem fut túl esetet*/
-            if (dogDistanceRanInACycle >= distance) {
+            if (dogDistanceRanInACycle >= Math.abs(distance)) {
                 dogDistanceRanInACycle -= distance;
                 dogCycle += 1;
             }
@@ -49,12 +49,22 @@ public class Calculator {
                 GUI.inform("Személyek túlmentek egymáson", String.format("Ha %f idő telt volna el az előző" +
                         " időponthoz képest, akkor találkoztak volna.",(previousDistance / (p1.speed+ p2.speed))), 1);
                 GUI.askDeleteEntries();
+                reset();
 
             } else if (distance == 0) {
                 personsMet = true;
                 GUI.inform("Személyek találkoztak", "A személyek találkoztak és nem mentek túl egymáson." , 1);
                 GUI.askDeleteEntries();
+                reset();
             }
         }
+    }
+
+    public void reset() {
+        p1.speed = 0;
+        p2.speed = 0;
+        dog.speed = 0;
+        distance = 0;
+        personsMet = false;
     }
 }
