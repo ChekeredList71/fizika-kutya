@@ -12,7 +12,7 @@ Ahogy fejlesztem (és javítom) a programot, új verziók lesznek kiadva. Azok i
 
 # Milyen új dolog kerül még a programba?
 
-- felhasználói felület (JMenu fellül mentés és betöltésre)
+- rendes felhasználói felület méretezés (felbontáshoz viszonyított szkákázása a szövegdobozoknak és a többi elemnek)
 - grafikon
 - automatikus léptetés (megad a felhasználó egy fix léptetést és azon automatikusan végig megy)
 - és ami még kell
