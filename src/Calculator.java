@@ -39,7 +39,7 @@ public class Calculator {
             }
             dogTraveled += dogDistanceRanInACycle;
 
-            GUI.Set.distance(String.valueOf(distance));
+            GUI.Set.distance(String.valueOf(Math.abs(distance)));
             GUI.Set.dogRounds(String.valueOf(dogCycle));
             GUI.Set.dogDistanceRanInACycle(String.valueOf(dogDistanceRanInACycle));
             GUI.Set.dogAllDistance(String.valueOf(dogTraveled));
