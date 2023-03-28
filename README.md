@@ -13,6 +13,8 @@ Ahogy fejlesztem (és javítom) a programot, új verziók lesznek kiadva. Azok i
 # Milyen új dolog kerül még a programba?
 
 - rendes felhasználói felület méretezés (felbontáshoz viszonyított szkákázása a szövegdobozoknak és a többi elemnek)
+- adatok mentése és betöltése
 - grafikon
+- grafikon exportálása képként lehetőség
 - automatikus léptetés (megad a felhasználó egy fix léptetést és azon automatikusan végig megy)
 - és ami még kell
