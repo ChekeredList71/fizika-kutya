@@ -6,6 +6,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
 
 public class GUI {
     static Dimension res = Toolkit.getDefaultToolkit().getScreenSize();
@@ -21,7 +22,6 @@ public class GUI {
     static JTextField stepTime = new JTextField(30);
     static JButton next = new JButton("Következő");
     public static void inputWindow() {
-
 
         //set up main panel
         JPanel mainPanel = new JPanel();
@@ -164,13 +164,15 @@ public class GUI {
     }
 
     public static void inform(String title, String text, int messageType) {
+        JOptionPane.setDefaultLocale(new Locale("hu", "HU"));
+        Locale.setDefault(new Locale("hu", "HU"));
         JOptionPane.showMessageDialog(frame, text, title, messageType);
     }
 
     /**
      * Megkérdezi a felhasználot, hogy üresítse-e ki a mezőket.*/
     public static void askDeleteEntries() {
-         if (JOptionPane.showConfirmDialog(frame, "Paraméter mezők kiüresítése?", "",
+         if (JOptionPane.showConfirmDialog(frame, "Paraméter mezők kiüresítése és újra kezdés", "Újra?",
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
                 GUI.Set.p1Speed("");
                 GUI.Set.p2Speed("");
@@ -262,6 +264,7 @@ public class GUI {
         }
 
     }
+
 
 }
 //TODO: JMenu, ahol cellák kiüresítése van és grafikon exportálása
