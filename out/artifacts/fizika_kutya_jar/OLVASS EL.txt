@@ -1,0 +1,7 @@
+A start.bat fájlt kell kétszer megkattintani, és elindul a program.
+Ennek bármilyen Windows 10/11 operációs rendszerű
+
+VAGY
+
+Java 17 JRE telepítésével magát a programot tartalmazó fájlt (fizika-kutya.jar) is le lehet futtatni.
+Innen be lehet szerezni: https://adoptium.net/temurin/releases/
